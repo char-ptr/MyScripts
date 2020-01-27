@@ -19,7 +19,7 @@ local ahwid = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/M
  
 local chwid = game:GetService("RbxAnalyticsService"):GetClientId();
  
-local PozmModules = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/Default_Modules.lua'),true))()
+local PozmModules = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/General/Default_Modules.lua'),true))()
 
 local isInTable = PozmModules.isInTable
  

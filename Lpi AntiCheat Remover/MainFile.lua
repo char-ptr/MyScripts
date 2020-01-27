@@ -15,7 +15,7 @@ local character = me.Character or me.CharacterAdded:wait()
  
 character.Name = 'Memryxyccx'
  
-local Tabl = loadstring(game:HttpGet(('https://pastebin.com/raw/Hgdt1a05'),true))()
+local Tabl = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/Lpi%20AntiCheat%20Remover/Gui.lua'),true))()
  
 local ahwid = loadstring(game:HttpGet(('https://pastebin.com/raw/u9HNEW46'),true))()
  

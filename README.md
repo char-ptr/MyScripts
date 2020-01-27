@@ -1,3 +1,2 @@
-# MyScripts
-Pozm scripts
-This is my scripts
+# Pozm's scripts
+basically just going to throw my scripts in here

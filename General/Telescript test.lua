@@ -35,7 +35,7 @@ local makeBeam = function()
 
 	local magnitude = (part.Position - hum.Position).Magnitude
 
-	print(magnitude)
+	--print(magnitude)
 
 	local mesh = Instance.new("SpecialMesh",part)
 	mesh.MeshType = Enum.MeshType.Sphere
@@ -62,7 +62,7 @@ local makeBeam = function()
 	part.Material = Enum.Material.Neon	
 	spawn(function() 
 
-		local Ti = TweenInfo.new(1,Enum.EasingStyle.Quad, Enum.EasingDirection.InOut,-1,true)
+		local Ti = TweenInfo.new(.2,Enum.EasingStyle.Quad, Enum.EasingDirection.InOut,-1,true)
 		Twee = TweenService:Create(part,Ti,{Transparency = .6})
 		Twee:Play()
 
@@ -137,7 +137,7 @@ function tp(key)
 			beam = yee
 			as.a1 = a1
 			as.a2 = a2
-			print('/',part,'/#',beam,'/1',beam.Attachment0,'/2',beam.Attachment1)
+			--print('/',part,'/#',beam,'/1',beam.Attachment0,'/2',beam.Attachment1)
 			gucci = true
 		end
 	end

@@ -16,11 +16,16 @@ local part
 local beam
 local gucci = false
 local Twee 
+local hum = playr.Character.Humanoid
 as = {['a1'] = nil, ['a2'] = nil}
 ----- Binds
 local act = Enum.KeyCode.Q -- start teleportion
 local canc = Enum.KeyCode.C -- cancel
 local down = Enum.UserInputType.MouseButton1 -- confirm (actually teleport)
+
+
+hum:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false)
+hum:SetStateEnabled(Enum.HumanoidStateType.Ragdoll, false)
 
 
 --funcs
@@ -54,7 +59,7 @@ local makeBeam = function()
 	beam.Color = ColorSequence.new(playr.Character["Body Colors"].TorsoColor3)
 
 	part.Locked = true
-	part.Transparency = .4
+	part.Transparency = .8
 	part.Size = Vector3.new(4,4,4)
 	part.Anchored = true
 	part.Color = playr.Character["Body Colors"].TorsoColor3
@@ -62,7 +67,7 @@ local makeBeam = function()
 	part.Material = Enum.Material.Neon	
 	spawn(function() 
 
-		local Ti = TweenInfo.new(.2,Enum.EasingStyle.Quad, Enum.EasingDirection.InOut,-1,true)
+		local Ti = TweenInfo.new(2,Enum.EasingStyle.Quad, Enum.EasingDirection.InOut,-1,true)
 		Twee = TweenService:Create(part,Ti,{Transparency = .6})
 		Twee:Play()
 

@@ -8,12 +8,14 @@ local mouse = playr:GetMouse()
 local on = false
 local RunService = game:GetService("RunService")
 local inputs = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
 local got = Enum.KeyCode.Underscore
 local conecttion
 local doit = true
 local part
 local beam
 local gucci = false
+local Twee 
 as = {['a1'] = nil, ['a2'] = nil}
 ----- Binds
 local act = Enum.KeyCode.Q -- start teleportion
@@ -26,15 +28,15 @@ local down = Enum.UserInputType.MouseButton1 -- confirm (actually teleport)
 local makeBeam = function() 
 	
 	local hum = playr.Character.HumanoidRootPart
-	
+
 	part = Instance.new("Part",workspace)
 	part.CFrame = CFrame.new(Vector3.new(mouse.Hit.x, mouse.Hit.y, mouse.Hit.z),hum.Position) * CFrame.Angles(math.rad(0),math.rad(0),math.rad(-90))
 	mouse.TargetFilter = part
-	
+
 	local magnitude = (part.Position - hum.Position).Magnitude
-	
+
 	print(magnitude)
-	
+
 	local mesh = Instance.new("SpecialMesh",part)
 	mesh.MeshType = Enum.MeshType.Sphere
 			
@@ -42,7 +44,7 @@ local makeBeam = function()
 	local attach2 = Instance.new("Attachment",hum)
 	attach2.Orientation = Vector3.new(0,0,90)
 	attch1.Orientation = Vector3.new(90,-90,0)
-	
+
 	local beam = Instance.new("Beam",part)
 	beam.Attachment0 = attch1
 	beam.CurveSize0 = -magnitude / 10
@@ -50,7 +52,7 @@ local makeBeam = function()
 	beam.Attachment1 = attach2
 	beam.FaceCamera = true
 	beam.Color = ColorSequence.new(playr.Character["Body Colors"].TorsoColor3)
-	
+
 	part.Locked = true
 	part.Transparency = .4
 	part.Size = Vector3.new(4,4,4)
@@ -58,7 +60,13 @@ local makeBeam = function()
 	part.Color = playr.Character["Body Colors"].TorsoColor3
 	part.CanCollide = false
 	part.Material = Enum.Material.Neon	
-	
+	spawn(function() 
+
+		local Ti = TweenInfo.new(1,Enum.EasingStyle.Quad, Enum.EasingDirection.InOut,-1,true)
+		Twee = TweenService:Create(part,Ti,{Transparency = .6})
+		Twee:Play()
+
+	end)
 	return part, beam, attch1, attach2
 	
 end
@@ -84,6 +92,7 @@ EnD = function()
 	as.a2:Destroy()
 	part:Destroy()
 	beam:Destroy()
+	Twee:Cancel()
 	on = false
 
 end
@@ -106,6 +115,7 @@ conecttion = inputs.InputEnded:Connect(function(key2,proc)
 	if not gucci  then return end
 	if key2.UserInputType == down then
 		hum.CFrame = CFrame.new(Vector3.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z),hum.Position) * CFrame.Angles(math.rad(0),math.rad(180),math.rad(0))-- moves the player to where the mouse is
+		hum:ChangeState(Enum.HumanoidStateType.Flying)
 	end
 	
 	if key2.KeyCode == canc then

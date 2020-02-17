@@ -2,7 +2,7 @@ function Method(Args)
 
 	print(Args.Target)
 
-	if not Args.Target or not Args.ToolName then return false,'PLAYER/TOOLNAME' end
+	if not Args.Target or not Args.ToolName then return false,'PLAYER' end
 
 	for _,v in pairs(game.Players:GetPlayers()) do 
 
@@ -10,7 +10,7 @@ function Method(Args)
 
 	end
 
-	if not Target then return end
+	if not Target then return false,'PLAYER2' end
 
 	local Char = Target.Character
 

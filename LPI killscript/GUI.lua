@@ -11,7 +11,7 @@ ScreenGui.ResetOnSpawn = false
 
 Frame.Name = "Frame"
 Frame.Parent = ScreenGui
-Frame.AnchorPoint = Vector2.new(0, 1)
+Frame.AnchorPoint = Vector2.new(1, 1)
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BackgroundTransparency = 1.000
 Frame.Position = UDim2.new(0.995241582, 0, 0.855144858, 0)

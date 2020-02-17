@@ -1,4 +1,6 @@
-function Method(Arg)
+local Methods = {}
+
+function Methods:Default(Arg)
 
 	print(Args.Target)
 
@@ -36,4 +38,4 @@ function Method(Arg)
 	)
 end
 
-return Method
+return Methods

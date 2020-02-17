@@ -1,5 +1,7 @@
 local TextBox = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/LPI%20killscript/GUI.lua'),true))()
-local Method = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/LPI%20killscript/Method.lua'),true))()
+local Methods = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/LPI%20killscript/Method.lua'),true))()
+
+local Method = Methods:Default
 
 TextBox.FocusLost:Connect(function(Enter) 
 

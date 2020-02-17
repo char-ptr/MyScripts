@@ -1,5 +1,7 @@
 function Method(Arg)
 
+	print(Args.Target)
+
 	if not Args.Target or not Args.ToolName then return end
 
 	for _,v in pairs(game.Players:GetPlayers()) do 

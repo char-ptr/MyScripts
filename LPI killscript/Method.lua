@@ -2,7 +2,7 @@ function Method(Args)
 
 	print(Args.Target)
 
-	if not Args.Target or not Args.ToolName then return end
+	if not Args.Target or not Args.ToolName then return false,'PLAYER/TOOLNAME' end
 
 	for _,v in pairs(game.Players:GetPlayers()) do 
 
@@ -26,7 +26,7 @@ function Method(Args)
 
 	if plr.Backpack:FindFirstChild(Args.ToolName) then tool = plr.Backpack:FindFirstChild(Args.ToolName)
 	elseif plr.Character:FindFirstChild(Args.ToolName) then tool = plr.Character:FindFirstChild(Args.ToolName)
-	else return end
+	else return false, 'BT' end
 
 	tool.Server:InvokeServer(
 		head,
@@ -34,6 +34,8 @@ function Method(Args)
 		'Update',
 		'InputEnd'
 	)
+	
+	return true
 end
 
 return Method

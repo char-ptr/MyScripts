@@ -16,8 +16,8 @@ TextBox.FocusLost:Connect(function(Enter)
 
 	else
 
-		if Res = 'PLAYER' then TextBox.Text = 'Entered Text is NIL'
-		elseif Res = 'PLAYER2' then TextBox.Text = 'Unable to find any players with '..Text
+		if Res == 'PLAYER' then TextBox.Text = 'Entered Text is NIL'
+		elseif Res == 'PLAYER2' then TextBox.Text = 'Unable to find any players with '..Text
 		elseif Res == 'BT' then TextBox.Text = 'Unable to find Grab BTOOL in your backpack' 
 		end
 		

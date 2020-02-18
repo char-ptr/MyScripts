@@ -20,6 +20,7 @@ Frame.Image = "rbxassetid://3570695787"
 Frame.ImageColor3 = Color3.fromRGB(62, 62, 62)
 Frame.ScaleType = Enum.ScaleType.Slice
 Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.05
 
 TextBox.Parent = Frame
 TextBox.BackgroundColor3 = Color3.fromRGB(63, 63, 63)

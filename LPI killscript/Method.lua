@@ -35,7 +35,7 @@ function Method(Args)
 		'InputEnd'
 	)
 	
-	return true
+	return true, Target
 end
 
 return Method

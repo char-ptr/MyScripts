@@ -10,6 +10,7 @@ function Method()
 	d2 = plrpg:GetChildren()
 	local ac 
 
+	--[[
 	for _,v in pairs(d2) do 
 
 		if v:IsA('LocalScript') then 
@@ -25,8 +26,9 @@ function Method()
 		end
 
 	end
+	--]]
 
-	if game:GetService("ReplicatedStorage")[" "] then game:GetService("ReplicatedStorage")[" "]:Destroy() end
+	if game:GetService("ReplicatedStorage"):FindFirstChild(' ') then game:GetService("ReplicatedStorage")[" "]:Destroy() end
 
 	if ac then ac:Destroy() end
 

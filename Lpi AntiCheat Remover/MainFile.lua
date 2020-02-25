@@ -19,6 +19,8 @@ local ahwid = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/M
  
 local chwid = game:GetService("RbxAnalyticsService"):GetClientId();
  
+local Method = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/Lpi%20AntiCheat%20Remover/method.lua'),true))()
+
 local PozmModules = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/General/Default_Modules.lua'),true))()
 
 local isInTable = PozmModules.isInTable
@@ -146,51 +148,15 @@ function search()
  
     print('Searching for the antiCheat')
  
-    spawn(function()
-        wait(4)
-        antiC = 'JoM'
-        Found = true
-    end)
+    c,r = pcall(function() Method() end)
  
-    while not Found do
- 
-        me.PlayerGui:WaitForChild('CoreGui')
- 
-        desc = game.Players.LocalPlayer.PlayerGui:GetDescendants()
- 
-        table.foreach(desc,function(v,k)
-   
-            --print(k,string.byte(k.Name), '///',#k.Name,utf8.len(k.Name)) -- testing to see differences
- 
-            if utf8.len(k.Name) ~= #k.Name then antiC = k ; Found = true ;detchm = '003'; table.insert(Acs, {k, '003'})  -- patched kinda
- 
-            elseif string.byte(k.Name) == nil then antiC = k ; Found = true ;detchm = '005'; table.insert(Acs, {k, '005'}) end
- 
-            --elseif string.byte(k.Name) > 100 then antiC = k ; Found = true ;detchm = '008' end -- patched
-       
-        end)
-   
-        wait()
-   
-    end
- 
-    if antiC == 'JoM' then print('Unable to find anticheat'); Editable.Text = 'Unable to find anticheat :('; ChkAg();
- 
-    else
+    if c then
 
-        for i,v in pairs(Acs) do
-            spawn(function()
-                print(v[1].Name..'('.. v[1]:GetFullName() ..')'..' Is an anticheat... --- going to Destroy.'); Editable.Text = 'Found the antiCheat'
-				wait(2.01999999999999999889)
-                v[1]:Destroy()
-                print('#'..i.. '/'..#Acs .. ' Destroyed! -- Detection Method = '..v[2])
-                Editable.Text = 'Bypassed anticheat! '
-                Detectionmethod.Text = v[2]
-            end)
-        end
- 
+        Editable.Text = 'Found and safely removed the anticheat.'
+        Detectionmethod.Text = 'Default'
+
     end
- 
+
     wait(2)
  
     MoveOutOfFrame()

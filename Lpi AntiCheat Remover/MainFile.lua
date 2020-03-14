@@ -116,54 +116,18 @@ end
     return
  
 end
- 
---CheckAgain (sometimes after death it can be hard to pick up)
- 
-function ChkAg()
-   
-    if Found then return print('Script attempted to Check again although anticheat was destroyed.') end
- 
-    wait(3)
-    print('Going to Check again..')
-    search()
- 
- 
-end
+
  
 --Core function.
- 
-function search()
- 
-    if not CheckAuth() then NonAuth(); return end
-   
-    Found = false
-    Acs = {}
-    antiC = nil
-    detchm = nil
- 
-    MoveIntoFrame()
-    Editable.Text = 'Authorized!\n Searching for the antiCheat...'
-    Detectionmethod.Text = 'Undectected...'
- 
- 
-    print('Searching for the antiCheat')
- 
-    c,r = pcall(function() Method() end)
- 
-    if c then
 
-        Editable.Text = 'Found and safely removed the anticheat.'
-        Detectionmethod.Text = 'Default'
+me.CharacterAdded:connect(function() 
 
-    end
+method()
 
-    wait(2)
- 
-    MoveOutOfFrame()
- 
-end
- 
-search()
+
+end)
+
+
  
 me.CharacterRemoving:Connect(function()
  

@@ -13,7 +13,7 @@ local set =
 	key = Enum.KeyCode.V;
 	timetoopen = .6;
 	tickers = { ['Id'] = 149406023; ['color'] = Color3.new(0,255,0); };
-	cross = { ['Id'] = 4778994978; ['color'] = Color3.new(255,0,0); };
+	cross = { ['Id'] = 110628451; ['color'] = Color3.new(255,0,0); };
 	}
 
 local bk = ui.bk
@@ -36,7 +36,9 @@ local curr = nil
 
 function load( plr ) 
 
-	con = Method( { Target = plr, ToolName = 'G' } )
+	con,err = Method( { Target = plr, ToolName = 'G' } )
+
+	print(err)
 
 	tx.Text = ''
 	if (con) == true then
@@ -84,7 +86,7 @@ function onupdate ()
 
 	if (not mouse.target) then showing = false;ui.Parent =plr;return end
 	
-	local isTool = mouse.target.Parent:IsA('Tool') and true or false
+	local isTool = mouse.target.Parent:IsA('Tool') or mouse.target.Parent:IsA('Accessory') and true or false
 
 	if ( not ( isTool and mouse.target.Parent.Parent:FindFirstChildWhichIsA('Humanoid') or mouse.target.Parent:FindFirstChildWhichIsA('Humanoid') ) ) then showing = false;ui.Parent =plr;return end
 
@@ -92,6 +94,7 @@ function onupdate ()
 
 	curr = mouse.target.Parent
 	
+	img.Visible = false
 	
 	tx.Text = string.char( set.key.Value )
 
@@ -101,7 +104,7 @@ function onupdate ()
 
 	fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,0,true)
 
-	doit( game.Players:GetPlayerFromCharacter( isTool and mouse.target.Parent.Parent.HumanoidRootPart or mouse.target.Parent.HumanoidRootPart ) )
+	doit( game.Players:GetPlayerFromCharacter( isTool and mouse.target.Parent.Parent or mouse.target.Parent ) )
 
 end
 

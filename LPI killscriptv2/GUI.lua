@@ -63,6 +63,7 @@ img.Selectable = false
 img.Size = UDim2.new(0, 40, 0, 40)
 img.ZIndex = 5
 img.Image = ""
+img.Visible = false
 
 
 return ui

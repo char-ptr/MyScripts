@@ -9,8 +9,9 @@ function Method(Args)
 		--if string.find( string.lower( v.Name  ), string.lower( Args.Target ) ) then Target = v; break end
 
 	--end
-
-	if not Target then return false,'PLAYER2' end
+	Target = Args.Target
+	
+	--if not Target then return false,'PLAYER2' end
 
 	local Char = Target.Character
 

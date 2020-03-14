@@ -78,7 +78,7 @@ function doit( plr )
 	
 	spawn(function() wait() d = false; while useris:IsKeyDown(set.key) do wait() end if (doing) then fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen/30*100,true,function() doit() end) end end)
 	
-	fill:TweenSizeAndPosition(tx.Size,tx.Position,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen,true,function() load(plr);doing = false; end)
+	fill:TweenSizeAndPosition(tx.Size,tx.Position,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen,true,function() load(plr); spawn(function() wait(.5); doing = false; end) end)
 	
 end
 

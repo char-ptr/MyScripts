@@ -13,7 +13,7 @@ local img = Instance.new("ImageButton")
 --Properties:
 
 ui.Name = "ui"
-ui.Parent = game.StarterPlayer.StarterPlayerScripts.LocalScript
+ui.Parent = nil
 ui.Active = true
 ui.ExtentsOffset = Vector3.new(3, 2, 0)
 ui.LightInfluence = 1.000

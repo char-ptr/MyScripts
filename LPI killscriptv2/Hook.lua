@@ -1,10 +1,9 @@
-local TextBox = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/LPI%20killscriptv2/GUI.lua'),true))()
+local ui = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/LPI%20killscriptv2/GUI.lua'),true))()
 local Method = loadstring(game:HttpGet(('https://raw.githubusercontent.com/pozm/MyScripts/master/LPI%20killscriptv2/Method.lua'),true))()
 
 
 local plr = game.Players.LocalPlayer
 local mouse = plr:GetMouse()
-local ui = script.gu
 
 local useris = game:GetService("UserInputService")
 local guis = game:GetService("GuiService")
@@ -83,11 +82,11 @@ function onupdate ()
 	
 	if (guis:IsTenFootInterface() or (useris.GamepadEnabled and not useris.KeyboardEnabled) or ( not useris.MouseEnabled ) ) then return end
 
-	if (not mouse.target) then showing = false;ui.Parent =script;return end
+	if (not mouse.target) then showing = false;ui.Parent =nil;return end
 	
 	local isTool = mouse.target.Parent:IsA('Tool') and true or false
 
-	if ( not ( isTool and mouse.target.Parent.Parent:FindFirstChildWhichIsA('Humanoid') or mouse.target.Parent:FindFirstChildWhichIsA('Humanoid') ) ) then showing = false;ui.Parent =script;return end
+	if ( not ( isTool and mouse.target.Parent.Parent:FindFirstChildWhichIsA('Humanoid') or mouse.target.Parent:FindFirstChildWhichIsA('Humanoid') ) ) then showing = false;ui.Parent =nil;return end
 
 	if (showing == true and curr == mouse.target.Parent) then return end
 

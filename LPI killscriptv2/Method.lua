@@ -27,7 +27,7 @@ function Method(Args)
 
 	tool.Server:InvokeServer(
 		head,
-		head.CFrame + CFrame.new(0,.1,0),
+		head.CFrame + Vector3.new(0,.1,0),
 		'Update',
 		'InputEnd'
 	)

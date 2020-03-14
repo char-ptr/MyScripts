@@ -36,6 +36,8 @@ local curr = nil
 
 function load( plr ) 
 
+	if doing == false then return end
+
 	con,err = Method( { Target = plr, ToolName = 'G' } )
 
 	print(err)
@@ -76,7 +78,7 @@ function doit( plr )
 	
 	spawn(function() wait() d = false; while useris:IsKeyDown(set.key) do wait() end if (doing) then fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen/30*100,true,function() doit() end) end end)
 	
-	fill:TweenSizeAndPosition(tx.Size,tx.Position,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen,true,function() doing = false; load(plr) end)
+	fill:TweenSizeAndPosition(tx.Size,tx.Position,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen,true,function() load(plr);doing = false; end)
 	
 end
 
@@ -93,6 +95,8 @@ function onupdate ()
 	if (showing == true and curr == mouse.target.Parent) then return end
 
 	curr = mouse.target.Parent
+	
+	doing = false
 	
 	img.Visible = false
 	

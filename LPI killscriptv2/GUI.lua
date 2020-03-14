@@ -2,7 +2,7 @@
 -- Version: 3.2
 
 -- Instances:
-
+local plr = game.Players.LocalPlayer
 local ui = Instance.new("BillboardGui")
 local bk = Instance.new("Frame")
 local fr = Instance.new("Frame")
@@ -13,7 +13,7 @@ local img = Instance.new("ImageButton")
 --Properties:
 
 ui.Name = "ui"
-ui.Parent = nil
+ui.Parent = plr
 ui.Active = true
 ui.ExtentsOffset = Vector3.new(3, 2, 0)
 ui.LightInfluence = 1.000
@@ -62,7 +62,7 @@ img.ClipsDescendants = true
 img.Selectable = false
 img.Size = UDim2.new(0, 40, 0, 40)
 img.ZIndex = 5
-img.Image = "rbxassetid://149406023"
+img.Image = ""
 
 
 return ui

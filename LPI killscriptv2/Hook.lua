@@ -82,23 +82,24 @@ function onupdate ()
 	
 	if (guis:IsTenFootInterface() or (useris.GamepadEnabled and not useris.KeyboardEnabled) or ( not useris.MouseEnabled ) ) then return end
 
-	if (not mouse.target) then showing = false;ui.Parent =nil;return end
+	if (not mouse.target) then showing = false;ui.Parent =plr;return end
 	
 	local isTool = mouse.target.Parent:IsA('Tool') and true or false
 
-	if ( not ( isTool and mouse.target.Parent.Parent:FindFirstChildWhichIsA('Humanoid') or mouse.target.Parent:FindFirstChildWhichIsA('Humanoid') ) ) then showing = false;ui.Parent =nil;return end
+	if ( not ( isTool and mouse.target.Parent.Parent:FindFirstChildWhichIsA('Humanoid') or mouse.target.Parent:FindFirstChildWhichIsA('Humanoid') ) ) then showing = false;ui.Parent =plr;return end
 
 	if (showing == true and curr == mouse.target.Parent) then return end
 
 	curr = mouse.target.Parent
 	
-	fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,0,true)
 	
 	tx.Text = string.char( set.key.Value )
 
 	showing = true
 	
 	ui.Parent = isTool and mouse.target.Parent.Parent.HumanoidRootPart or mouse.target.Parent.HumanoidRootPart
+
+	fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,0,true)
 
 	doit( game.Players:GetPlayerFromCharacter( isTool and mouse.target.Parent.Parent.HumanoidRootPart or mouse.target.Parent.HumanoidRootPart ) )
 

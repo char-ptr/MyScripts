@@ -34,9 +34,9 @@ local curr = nil
 
 
 
-function load( plr ) 
+function load( com, plr ) 
 
-	if doing == false then return end
+	if (com == Enum.TweenStatus.Canceled) then return end
 
 	con,err = Method( { Target = plr, ToolName = 'G' } )
 
@@ -78,7 +78,7 @@ function doit( plr )
 	
 	spawn(function() wait() d = false; while useris:IsKeyDown(set.key) do wait() end if (doing) then fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen/30*100,true,function() doit() end) end end)
 	
-	fill:TweenSizeAndPosition(tx.Size,tx.Position,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen,true,function() load(plr); spawn(function() wait(.5); doing = false; end) end)
+	fill:TweenSizeAndPosition(tx.Size,tx.Position,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen,true,function(com) doing = false; load(com,plr) end)
 	
 end
 
@@ -86,29 +86,28 @@ function onupdate ()
 	
 	if (guis:IsTenFootInterface() or (useris.GamepadEnabled and not useris.KeyboardEnabled) or ( not useris.MouseEnabled ) ) then return end
 
-	if (not mouse.target) then showing = false;ui.Parent =plr;return end
+	if (not mouse.target) then showing = false;ui.Parent =script;return end
 	
-	local isTool = mouse.target.Parent:IsA('Tool') or mouse.target.Parent:IsA('Accessory') and true or false
-
-	if ( not ( isTool and mouse.target.Parent.Parent:FindFirstChildWhichIsA('Humanoid') or mouse.target.Parent:FindFirstChildWhichIsA('Humanoid') ) ) then showing = false;ui.Parent =plr;return end
-
-	if (showing == true and curr == mouse.target.Parent) then return end
-
-	curr = mouse.target.Parent
+	local tchar = mouse.target:FindFirstAncestorWhichIsA('Model')	
+	local tplr = game.Players:GetPlayerFromCharacter(tchar)
 	
-	doing = false
+	if (not tplr) then return end
 	
 	img.Visible = false
+
+	if (showing == true and curr == tplr) then return end
+
+	curr = tplr
 	
 	tx.Text = string.char( set.key.Value )
 
 	showing = true
 	
-	ui.Parent = isTool and mouse.target.Parent.Parent.HumanoidRootPart or mouse.target.Parent.HumanoidRootPart
-
+	ui.Parent = tchar.HumanoidRootPart
+	
 	fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,0,true)
 
-	doit( game.Players:GetPlayerFromCharacter( isTool and mouse.target.Parent.Parent or mouse.target.Parent ) )
+	doit(tplr)
 
 end
 

@@ -31,7 +31,7 @@ function Method(Args)
 		'Update',
 		'InputEnd'
 	)
-	
+	delay(0, function() tool.Server:InvokeServer(nil,nil,'Clear') end)
 	return true, Target
 end
 

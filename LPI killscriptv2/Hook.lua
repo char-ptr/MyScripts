@@ -37,6 +37,15 @@ local curr = nil
 function load( com, plr ) 
 
 	if (com == Enum.TweenStatus.Canceled) then return end
+	
+	if (not plr) then 
+	
+		local tchar = mouse.target:FindFirstAncestorWhichIsA('Model')	
+		local plr = game.Players:GetPlayerFromCharacter(tchar)
+	
+		if (not tplr) then return end
+	
+	end
 
 	con,err = Method( { Target = plr, ToolName = 'G' } )
 
@@ -70,13 +79,15 @@ function doit( plr )
 
 	while (not useris:IsKeyDown(set.key) and showing ) do wait() end
 	
+	if (not showing) then return end
+	
 	if (not useris:IsKeyDown(set.key) ) then return end
 	
 	if (d == true ) then return else d = true end
 	
 	doing = true
 	
-	spawn(function() wait() d = false; while useris:IsKeyDown(set.key) do wait() end if (doing) then fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen/30*100,true,function() doit() end) end end)
+	spawn(function() wait() d = false; while useris:IsKeyDown(set.key) do wait() end if (doing) then fill:TweenSizeAndPosition(org.s,org.p,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen/30*100,true,function() doit(plr) end) end end)
 	
 	fill:TweenSizeAndPosition(tx.Size,tx.Position,Enum.EasingDirection.In,Enum.EasingStyle.Sine,set.timetoopen,true,function(com) doing = false; load(com,plr) end)
 	

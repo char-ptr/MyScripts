@@ -34,20 +34,12 @@ local curr = nil
 
 
 
-function load( com, plr ) 
+function load( com ) 
 
 	if (com == Enum.TweenStatus.Canceled) then return end
 	
-	if (not plr) then 
-	
-		local tchar = mouse.target:FindFirstAncestorWhichIsA('Model')	
-		local plr = game.Players:GetPlayerFromCharacter(tchar)
-	
-		if (not tplr) then return end
-	
-	end
 
-	con,err = Method( { Target = plr, ToolName = 'G' } )
+	con,err = Method( { Target = curr, ToolName = 'G' } )
 
 	print(err)
 

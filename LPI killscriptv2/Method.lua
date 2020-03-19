@@ -4,14 +4,8 @@ function Method(Args)
 
 	if not Args.Target or not Args.ToolName then return false,'PLAYER' end
 
-	--for _,v in pairs(game.Players:GetPlayers()) do 
-
-		--if string.find( string.lower( v.Name  ), string.lower( Args.Target ) ) then Target = v; break end
-
-	--end
 	Target = Args.Target
 	
-	--if not Target then return false,'PLAYER2' end
 
 	local Char = Target.Character
 

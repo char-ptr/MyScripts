@@ -19,7 +19,7 @@ local Twee
 local hum = playr.Character.Humanoid
 as = {['a1'] = nil, ['a2'] = nil}
 ----- Binds
-local act = Enum.KeyCode.Q -- start teleportion
+local act = Enum.KeyCode.X -- start teleportion
 local canc = Enum.KeyCode.C -- cancel
 local down = Enum.UserInputType.MouseButton1 -- confirm (actually teleport)
 

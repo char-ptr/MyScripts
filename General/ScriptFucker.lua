@@ -25,7 +25,7 @@ mt.__index = newcclosure(function(t,k,...)
             print('Method : '..tostring(k))
             print(...)
         end
-        return nil
+        return _G.R and _G.R or nil
     end
-   return old(t,k,...)
+    return old(t,k,...)
 end)

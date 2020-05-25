@@ -1,3 +1,5 @@
+--bypass 1
+
 _G.BlackListedScripts = {
     
     "\226\128\140\226\128\140",

@@ -2,9 +2,6 @@ local SG
 local player;
 local LastPosition = UDim2.new(0.817730486, 0, 0.335714281, 0)
 if _G.KEYSTROKES then return error('You have already executed this script.') end
-_G.UseRainbow = true
-_G.Size = .9
-_G.KEYSTROKES = true
 
 while not player do wait(); player = game.Players.LocalPlayer end
 

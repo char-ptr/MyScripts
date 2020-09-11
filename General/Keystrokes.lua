@@ -2,7 +2,9 @@ local SG
 local player;
 local LastPosition = UDim2.new(0.817730486, 0, 0.335714281, 0)
 if _G.KEYSTROKES then return error('You have already executed this script.') end
-
+-- i do this incase the user is using auto launch + auto exec,
+-- using this combination normally will break the script due to
+-- it being executed before player is defined.
 while not player do wait(); player = game.Players.LocalPlayer end
 
 function CreateUI()
